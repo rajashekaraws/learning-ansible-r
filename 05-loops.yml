@@ -1,0 +1,15 @@
+- name: demo on loops
+  hosts: localhost
+  tasks:
+    - name: Loop on List
+      ansible.builtin.debug:
+        msg: "Fruit Name - {{item}}"
+      loop:
+        - orange
+        - apple
+    - name: Loop on List of maps
+      ansible.builtin.debug:
+        msg: "Fruit Name - {{item.name}} , Count = {{item.count}}"
+      loop:
+        - {name: "orange", count: 100}
+        - {name: "apple", count: 50}
